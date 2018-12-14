@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:FUTABus.ViewModel"
+                    xmlns:local="clr-namespace:FUTABus.ResourceXAML"
+                    xmlns:viewmodel1="clr-namespace:FUTABus.View">
+    <viewmodel1:MainViewModel x:Key="MainVM"></viewmodel1:MainViewModel>
+</ResourceDictionary>

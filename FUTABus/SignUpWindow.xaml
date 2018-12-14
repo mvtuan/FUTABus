@@ -1,0 +1,118 @@
+﻿<Window x:Class="FUTABus.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:y="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FUTABus"
+        xmlns:uc="clr-namespace:FUTABus.UserController"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Name="signUpWindow"
+        Title="Đăng ký" Height="700" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:UCControlBar Tag="{Binding Title, ElementName=signUpWindow}"></uc:UCControlBar>
+        </Grid>
+        <Grid Grid.Row="1">
+            <materialDesign:Card Grid.Row="1" Width="600" Height="550" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin" Value="15 0 15 0"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox materialDesign:HintAssist.Hint="Họ và tên"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <PasswordBox
+                        x:Name="FloatingPasswordBox"
+                        materialDesign:HintAssist.Hint="Mật khẩu"
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox materialDesign:HintAssist.Hint="Số điện thoại"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <PasswordBox
+                        y:Name="FloatingRePasswordBox"
+                        materialDesign:HintAssist.Hint="Nhập lại mật khẩu"
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox materialDesign:HintAssist.Hint="Số CMND"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBox materialDesign:HintAssist.Hint="Email"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBox materialDesign:HintAssist.Hint="Địa chỉ"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="5">
+                        <Button
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="120"
+                            Background="SeaGreen"
+                            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Content="Đăng ký">
+                        </Button>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+
+    </Grid>
+</Window>
