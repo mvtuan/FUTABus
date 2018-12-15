@@ -1,0 +1,96 @@
+﻿<Window x:Class="FUTABus.InfoAdjustmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:FUTABus.UserController"
+        xmlns:local="clr-namespace:FUTABus"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Name="adjustInfo"
+        Title="Cập nhật tài khoản" Height="350" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:UCControlBar Tag="{Binding Title, ElementName=adjustInfo}"></uc:UCControlBar>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Border Background="{DynamicResource MaterialDesignBackground}">
+                <GroupBox Header="THÔNG TIN CÁ NHÂN"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          Margin="16"
+                          UseLayoutRounding="True"
+                          SnapsToDevicePixels="True">
+                    <TextBlock>
+                        <StackPanel Width="172">
+                            <TextBox materialDesign:HintAssist.Hint="Họ tên"
+                                     Text="{Binding Name}"
+                                     Margin="8 0 8 0"
+                                     Height="40"
+                                     VerticalAlignment="Bottom" />
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Số điện thoại"
+                                Text="{Binding Content}"
+                                Margin="8 0 8 0"
+                                Height="40"
+                                VerticalAlignment="Bottom" />
+                            <TextBox
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                materialDesign:HintAssist.Hint="Email"
+                                Text="{Binding Name}"
+                                Margin="8 0 8 0"
+                                Height="40"
+                                VerticalAlignment="Bottom" />
+                        </StackPanel>
+                    </TextBlock>
+                </GroupBox>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Background="{DynamicResource MaterialDesignBackground}">
+                    <GroupBox Header="THÔNG TIN ĐịA CHỈ"
+                          Style="{DynamicResource MaterialDesignGroupBox}"
+                          Margin="16"
+                          UseLayoutRounding="True"
+                          SnapsToDevicePixels="True">
+                        <TextBox
+    TextWrapping="Wrap"
+    VerticalAlignment="Stretch"
+    MinWidth="150"
+    AcceptsReturn="True"
+    VerticalScrollBarVisibility="Auto"
+    SpellCheck.IsEnabled="True"
+    materialDesign:HintAssist.Hint="Địa chỉ"
+    Height="80" Margin="0,41,0,21">
+                           
+                        </TextBox>
+                    </GroupBox>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="100">
+                Cập nhật
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

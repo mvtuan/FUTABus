@@ -23,5 +23,11 @@ namespace FUTABus
         {
             InitializeComponent();
         }
+
+        private void BtnChonGhe(object sender, RoutedEventArgs e)
+        {
+            PaymentWindow pay = new PaymentWindow();
+            pay.Show();
+        }
     }
 }

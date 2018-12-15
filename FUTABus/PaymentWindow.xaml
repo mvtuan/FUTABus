@@ -18,50 +18,53 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Name="payment"
-        Title="PaymentWindow" Height="450" Width="800">
+        Title="Thanh toán" Height="450" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:UCControlBar></uc:UCControlBar>
+            <uc:UCControlBar Tag="{Binding Title, ElementName=payment}"></uc:UCControlBar>
         </Grid>
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <TextBox HorizontalAlignment="Center" VerticalAlignment="Top">CHỌN PHƯƠNG THỨC THANH TOÁN</TextBox>
-                <!-- the following based on https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons -->
-                <ListBox
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Top">CHỌN PHƯƠNG THỨC THANH TOÁN</TextBox>
+            <!-- the following based on https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons -->
+            <ListBox
                     Style="{StaticResource MaterialDesignToolToggleListBox}"
                     VerticalAlignment="Center"
                     SelectedIndex="0">
-                    <ListBox.ToolTip>
-                        <StackPanel>
-                            <TextBlock
-                                Text="MaterialDesignToolToggleListBox" />
-                            <TextBlock
-                                Text="Exclusive selection" />
-                            <TextBlock
-                                Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
-                        </StackPanel>
-                    </ListBox.ToolTip>
-                    <ListBoxItem Width="150" Height="150">
-                        <materialDesign:PackIcon Kind="Cash" Height="100" Width="100"/>
-                    </ListBoxItem>
-                    <ListBoxItem Width="150" Height="150">
-                        <materialDesign:PackIcon Kind="CreditCard" Height="100" Width="100"/>
-                    </ListBoxItem>
-                </ListBox>
-            </Grid>
-            <Grid Grid.Column="1">
-                <materialDesign:Card>
-                    
-                </materialDesign:Card>
-            </Grid>
+                <ListBoxItem Width="150" Height="150">
+                    <materialDesign:PackIcon Kind="Cash" Height="100" Width="100"/>
+                </ListBoxItem>
+                <ListBoxItem Width="150" Height="150">
+                    <materialDesign:PackIcon Kind="CreditCard" Height="100" Width="100"/>
+                </ListBoxItem>
+                <Button Content="Thanh toán" Name="btnThanhToan"
+                        Click="BtnThanhToan"></Button>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <ListView ItemsSource="{Binding Items1}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Code}" Header="Mã vé" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Họ tên" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Email" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Code}" Header="SĐT" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="CMND" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Địa chỉ" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Code}" Header="Tuyến đường" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Ngày đi" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Giờ khỏi hành" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Code}" Header="Số ghế" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Điểm lên xe" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Giá vé" />
+                        <GridViewColumn DisplayMemberBinding="{Binding TongTien}" Header="Tổng tiền"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </Grid>
 </Window>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Tuan\source\repos\FUTABus\FUTABus\obj\Debug\
+E:\DBMS\FUTABus\FUTABus\obj\Debug\
 FUTABus
 none
 false
 DEBUG;TRACE
-C:\Users\Tuan\source\repos\FUTABus\FUTABus\App.xaml
-7-608908802
+E:\DBMS\FUTABus\FUTABus\App.xaml
+91109945615
 
-1712002705
-17-2051461717
-LogInWindow.xaml;MainWindow.xaml;PaymentWindow.xaml;ResourceXAML\MainResource.xaml;SeatPicking.xaml;SignUpWindow.xaml;UserController\UCControlBar.xaml;
+19618711218
+17-2067898238
+AdminWindow.xaml;InfoAdjustmentWindow.xaml;LogInWindow.xaml;MainWindow.xaml;PaymentWindow.xaml;ResourceXAML\MainResource.xaml;SeatPicking.xaml;SignUpWindow.xaml;UserController\UCControlBar.xaml;
 
-False
+True
 

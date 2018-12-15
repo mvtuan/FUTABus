@@ -8,9 +8,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext = "{StaticResource MainVM}"
-        Loaded="MainWindow_Loaded"
         ResizeMode="NoResize"
         WindowStyle="None"
+        Loaded="MainWindow_Loaded"
         Name="mainWindow"
         Title="FUTABusLine" Height="800" Width="800">
     <i:Interaction.Triggers>
@@ -18,24 +18,46 @@
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
 
-    <Grid>
+    <Grid x:Name="GridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:UCControlBar Loaded="UCControlBar_Loaded" Tag="{Binding Title, ElementName=mainWindow}"></uc:UCControlBar>
+            <uc:UCControlBar Tag="{Binding Title, ElementName=mainWindow}"></uc:UCControlBar>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="11*"/>
                 <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
-            
+
             <materialDesign:Card Width="800" Height="740" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0,-6,0,19" >
                 <Grid>
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
@@ -70,7 +92,7 @@
                                             </Button>
                                             <TextBox Grid.Column="1"
                                                      Margin="8 0 0 0"
-                                                     materialDesign:HintAssist.Hint="Build a search bar"
+                                                     materialDesign:HintAssist.Hint="Tìm kiếm chuyến đi"
                                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                                      BorderThickness="0"
                                                      MinWidth="200"
@@ -123,88 +145,91 @@
                         </DockPanel>-->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="130"
+                                Width="109"
                                     Content="LỊCH TRÌNH"
                                     Margin="0,10,10,10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                            </Button>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="130"
+                                Width="110"
                                     Content="TIN TỨC"
                                     Margin="10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                            </Button>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="130"
+                                Width="110"
                                     Content="LIÊN HỆ"
                                     Margin="10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                            </Button>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
                             <Button
                                 Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="130"
+                                Width="110"
                                 Content="ĐĂNG NHẬP"
+                                Click="BtnDangNhap"
                                 Margin="10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                            </Button>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="130"
+                                Width="109"
                                     Content="ĐĂNG KÝ"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="10,10,0,10">
-                            </Button>
+                                    Click="BtnDangKy"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="10,10,0,10"/>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="2">
                         <Border Background="{DynamicResource MaterialDesignBackground}">
                             <GroupBox Header="ĐẶT VÉ TRỰC TUYẾN"
                                       Style="{DynamicResource MaterialDesignGroupBox}"
-                                      Margin="16"
+                                      Margin="85,16,16,16"
                                       UseLayoutRounding="True"
                                       SnapsToDevicePixels="True">
                                 <Grid>
-                                    <DatePicker Width="100"
-                                    materialDesign:HintAssist.Hint="Pick Date"
-                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                        <ComboBox HorizontalAlignment="Left" x:Name="cbDiemKhoiHanh" Width="50">
-                                            <ComboBox.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <VirtualizingStackPanel />
-                                                </ItemsPanelTemplate>
-                                            </ComboBox.ItemsPanel>
-                                        </ComboBox>
-                                        <ComboBox x:Name="cbDiemDen" Width="50">
-                                            <ComboBox.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <VirtualizingStackPanel />
-                                                </ItemsPanelTemplate>
-                                            </ComboBox.ItemsPanel>
-                                        </ComboBox>
-                                    <ComboBox x:Name="cbSoVe" Width="50" HorizontalAlignment="Right">
+                                    <DatePicker Width="120" Height="35"
+                                    materialDesign:HintAssist.Hint="Ngày khởi hành"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="242,30,319,159"/>
+                                    <ComboBox materialDesign:HintAssist.Hint="Điểm khởi hành"
+                                              x:Name="cbDiemKhoiHanh" Width="120" Margin="48,37,513,159" >
                                         <ComboBox.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <VirtualizingStackPanel />
                                             </ItemsPanelTemplate>
                                         </ComboBox.ItemsPanel>
                                     </ComboBox>
+                                    <ComboBox materialDesign:HintAssist.Hint="Điểm đến"
+                                            x:Name="cbDiemDen" Width="120" Margin="48,91,513,105">
+                                        <ComboBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel />
+                                            </ItemsPanelTemplate>
+                                        </ComboBox.ItemsPanel>
+                                    </ComboBox>
+                                    <materialDesign:TimePicker
+                                        Width="120"
+                                        Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+                                        materialDesign:HintAssist.Hint="Giờ đi" Margin="242,91,319,0" />
+                                    <Button
+                                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                                        Width="100" Margin="154,156,427,36"
+                                        Click="BtnDatVe">
+                                        ĐẶT VÉ
+                                    </Button>
                                 </Grid>
-                                
+
                             </GroupBox>
                         </Border>
-                        
+
                     </Grid>
                     <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
                             <materialDesign:Card
                                 Background="{DynamicResource PrimaryHueDarkBrush}"
                                 Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
-                                Width="250"
+                                Width="313"
                                 Padding="8"
-                                Height="200"
+                                Height="203"
+                                HorizontalAlignment="Right"
                                 UniformCornerRadius="6">
                                 <TextBlock TextWrapping="Wrap"
                                            FontSize="14">
@@ -212,23 +237,23 @@
                                     tôi (kể cả thứ 7 và Chủ Nhật): 1900 6067 hoặc mua vé tiện lợi ngay trên chiếc 
                                     điện thoại thông minh của quý vị thông qua app FUTA Bus trên cả hai hệ điều hành
                                     phổ biến nhất hiện nay là IOS và Android
-                                    
+
                                 </TextBlock>
                             </materialDesign:Card>
                         </Grid>
-                        <Grid Grid.Column="1">
+                        <Grid Grid.Column="1" Height="200" VerticalAlignment="Top">
                             <TextBlock TextWrapping="Wrap"
-                                       Width="250"
-                                       Height="80"
+                                       Width="200"
+                                       Height="100"
                                        Padding="8"
                                        TextAlignment="Center"
                                        VerticalAlignment="Top"
-                                       FontSize="20">
+                                       FontSize="18">
                                 Tổng đài đặt vé và chăm sóc khách hàng
                             </TextBlock>
                             <TextBlock HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       FontSize="50">
+                                       FontSize="40">
                                 19006067
                             </TextBlock>
                         </Grid>
@@ -245,14 +270,61 @@
                     </Grid>
                 </Grid>
             </materialDesign:Card>
-            <!--<Grid Width="200" Height="750" HorizontalAlignment="Left" Background="#FFBD2A2A" Margin="0,-6,0,9">
-                <Grid Height="150" VerticalAlignment="Top" Background="White">
-                    <materialDesign:PackIcon Kind="ArrowLeft" Margin="148,17,0,0" Height="35" Width="35" />
-                </Grid>
-                <ListView>
-                    <ListViewItem Height="60"></ListViewItem>
-                </ListView>
-            </Grid>-->
+            <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FFFF5D00" Margin="0,-6,0,6">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+                </Grid.Effect>
+                <StackPanel>
+                    <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="73*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click">
+                            <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                        </Button>
+                        <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="0,5,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
+                            <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                        </Button>
+
+                        <!--<Image Height="80" VerticalAlignment="Bottom"/>-->
+                    </Grid>
+                    <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
+                        <ListViewItem x:Name="ItemHome" Height="60" Selected="ItemHome_Selected" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ItemCreate" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Pencil" Foreground="White" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Ticket" Foreground="White" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Tickets" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Message" Foreground="White" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Messages" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

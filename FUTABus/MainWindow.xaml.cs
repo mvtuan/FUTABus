@@ -25,12 +25,6 @@ namespace FUTABus
         {
             InitializeComponent();
         }
-        int[] Amount = new int[29];
-
-        private void UCControlBar_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Save(object sender, RoutedEventArgs e)
         {
@@ -48,12 +42,49 @@ namespace FUTABus
                 "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang", "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái", "Phú Yên",
                 "Cần Thơ", "Đà Nẵng", "Hải Phòng", "Hà Nội", "TP HCM"
             };
-            for (int i = 1; i < 29; i++)
-                Amount[i] = i;
             cbDiemKhoiHanh.ItemsSource = Destinations;
             cbDiemDen.ItemsSource = Destinations;
-            cbSoVe.ItemsSource = Amount;
+        }
+
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        { 
+            GridMain.Children.Clear();
         }
         
+        private void BtnDangNhap(object sender, RoutedEventArgs e)
+        {
+            LogInWindow login = new LogInWindow();
+            login.ShowDialog();
+        }
+
+        private void BtnDangKy(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow signUp = new SignUpWindow();
+            signUp.ShowDialog();
+        }
+
+        private void ItemHome_Selected(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow signUp = new SignUpWindow();
+            signUp.ShowDialog();
+        }
+
+        private void BtnDatVe(object sender, RoutedEventArgs e)
+        {
+            SeatPicking seat = new SeatPicking();
+            seat.Show();
+        }
     }
 }

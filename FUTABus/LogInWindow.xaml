@@ -24,7 +24,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:UCControlBar Loaded="UCControlBar_Loaded" Tag="{Binding Title, ElementName=LoginWindow}"></uc:UCControlBar>
+            <uc:UCControlBar  Tag="{Binding Title, ElementName=LoginWindow}"></uc:UCControlBar>
         </Grid>
         <materialDesign:Card Grid.Row="1" Width="350" Height="250" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid>

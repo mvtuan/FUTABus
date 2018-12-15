@@ -23,5 +23,10 @@ namespace FUTABus
         {
             InitializeComponent();
         }
+
+        private void BtnThanhToan(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

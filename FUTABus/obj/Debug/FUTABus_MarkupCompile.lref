@@ -1,9 +1,12 @@
 ﻿
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\App.xaml;;
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\LogInWindow.xaml;;
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\MainWindow.xaml;;
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\ResourceXAML\MainResource.xaml;;
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\SignUpWindow.xaml;;
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\UserController\UCControlBar.xaml;;
-FC:\Users\Tuan\source\repos\FUTABus\FUTABus\SeatPicking.xaml;;
+FE:\DBMS\FUTABus\FUTABus\App.xaml;;
+FE:\DBMS\FUTABus\FUTABus\InfoAdjustmentWindow.xaml;;
+FE:\DBMS\FUTABus\FUTABus\LogInWindow.xaml;;
+FE:\DBMS\FUTABus\FUTABus\MainWindow.xaml;;
+FE:\DBMS\FUTABus\FUTABus\PaymentWindow.xaml;;
+FE:\DBMS\FUTABus\FUTABus\ResourceXAML\MainResource.xaml;;
+FE:\DBMS\FUTABus\FUTABus\SeatPicking.xaml;;
+FE:\DBMS\FUTABus\FUTABus\SignUpWindow.xaml;;
+FE:\DBMS\FUTABus\FUTABus\UserController\UCControlBar.xaml;;
+FE:\DBMS\FUTABus\FUTABus\AdminWindow.xaml;;
 
