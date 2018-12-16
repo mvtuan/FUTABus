@@ -25,7 +25,7 @@
         <materialDesign:ColorZone Mode="PrimaryLight" Padding="16" Background="#FFFF5D00">
             <DockPanel>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left"
-                           Margin="16 0 0 0" Text="{Binding Tag, ElementName=ucControlBar}" Foreground="#DDFFFFFF">
+                           Margin="16 0 0 0" Text="{Binding Tag, ElementName=ucControlBar}" Foreground="#DDFFFFFF" FontSize="18">
                 </TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Command="{Binding MinimizeWindowCommand}"

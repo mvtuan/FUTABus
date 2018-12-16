@@ -41,10 +41,24 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <materialDesign:Card>
-                    <Button Content="Tiếp tục"
-                            Click="BtnChonGhe"></Button>
-                </materialDesign:Card>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold">Tuyến xe</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold">Giờ khỏi hành</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold">Điểm lên xe</TextBlock>
+                
+                <TextBlock Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Text="{Binding Mave}"></TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Text="{Binding Mave}"></TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Text="{Binding Mave}"></TextBlock>
+                <Button Grid.Row="3" Grid.Column="1" Margin="61,60,167,92">Tiếp tục</Button>
             </Grid>
             <Grid Grid.Column="1">
                 <Border

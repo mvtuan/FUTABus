@@ -67,11 +67,8 @@
                     <Grid Grid.Row="0">
                         <materialDesign:ColorZone
                             Mode="PrimaryMid"
-                            Padding="16" Background="#FFFF5D00">
+                            Padding="16" Background="#FFFF5D00" Margin="16,0,-16,0">
                             <DockPanel>
-                                <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
-                                              VerticalAlignment="Center"
-                                              DockPanel.Dock="Right" />
                                 <StackPanel Orientation="Horizontal"
                                             materialDesign:RippleAssist.IsCentered="True">
                                     <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
@@ -143,34 +140,35 @@
                                 </Button>
                             </StackPanel>
                         </DockPanel>-->
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30,0,-30,0">
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="109"
+                                Width="110"
                                     Content="LỊCH TRÌNH"
                                     Margin="0,10,10,10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF1553D6" Foreground="#DDFFFFFF"/>
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
                                 Width="110"
                                     Content="TIN TỨC"
                                     Margin="10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF1553D6" Foreground="#DDFFFFFF"/>
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
                                 Width="110"
                                     Content="LIÊN HỆ"
                                     Margin="10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Foreground="#DDFFFFFF" Background="#FF1553D6"/>
                             <Button
                                 Style="{StaticResource MaterialDesignRaisedLightButton}"
                                 Width="110"
                                 Content="ĐĂNG NHẬP"
                                 Click="BtnDangNhap"
                                 Margin="10"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton"/>
+                                Padding="2"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF1553D6" Foreground="#DDFFFFFF"/>
                             <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                Width="109"
+                                Width="110"
                                     Content="ĐĂNG KÝ"
                                     Click="BtnDangKy"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="10,10,0,10"/>
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="10,10,0,10" Foreground="#DDFFFFFF" Background="#FF1553D6"/>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="2">
@@ -207,7 +205,7 @@
                                     <Button
                                         Style="{StaticResource MaterialDesignRaisedAccentButton}"
                                         Width="100" Margin="154,156,427,36"
-                                        Click="BtnDatVe">
+                                        Click="BtnDatVe" Background="#FF1553D6" Foreground="#DDFFFFFF" BorderBrush="#FF1553D6">
                                         ĐẶT VÉ
                                     </Button>
                                 </Grid>
@@ -224,7 +222,7 @@
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
                             <materialDesign:Card
-                                Background="{DynamicResource PrimaryHueDarkBrush}"
+                                Background="#FF1553D6"
                                 Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                                 Width="313"
                                 Padding="8"
@@ -248,7 +246,7 @@
                                        Padding="8"
                                        TextAlignment="Center"
                                        VerticalAlignment="Top"
-                                       FontSize="18">
+                                       FontSize="18" FontWeight="Bold">
                                 Tổng đài đặt vé và chăm sóc khách hàng
                             </TextBlock>
                             <TextBlock HorizontalAlignment="Center"
@@ -259,11 +257,10 @@
                         </Grid>
                         <Grid Grid.Column="2">
                             <DockPanel>
-                                <StackPanel >
-                                    <TextBox>TẢI APP FUTA BUS</TextBox>
-                                    <Button>Tải xuống từ IOS</Button>
-                                    <Button>Tải xuống từ Android</Button>
-                                    <ToggleButton IsChecked="True" ></ToggleButton>
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBox TextAlignment="Center" FontSize="16" FontWeight="Bold">TẢI APP FUTA BUS</TextBox>
+                                    <Button Background="#FF1553D6">Tải xuống từ IOS</Button>
+                                    <Button Background="#FF1553D6">Tải xuống từ Android</Button>
                                 </StackPanel>
                             </DockPanel>
                         </Grid>
@@ -298,10 +295,10 @@
                         <!--<Image Height="80" VerticalAlignment="Bottom"/>-->
                     </Grid>
                     <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                        <ListViewItem x:Name="ItemHome" Height="60" Selected="ItemHome_Selected" >
+                        <ListViewItem x:Name="ItemHome" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Height="25" Width="25" Margin="10"/>
-                                <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
+                                    <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="ItemCreate" Height="60">
@@ -320,6 +317,12 @@
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Message" Foreground="White" Height="25" Width="25" Margin="10"/>
                                 <TextBlock Text="Messages" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Account" Foreground="White" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Đăng xuất" VerticalAlignment="Center"  Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>

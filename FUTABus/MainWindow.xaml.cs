@@ -75,16 +75,10 @@ namespace FUTABus
             signUp.ShowDialog();
         }
 
-        private void ItemHome_Selected(object sender, RoutedEventArgs e)
-        {
-            SignUpWindow signUp = new SignUpWindow();
-            signUp.ShowDialog();
-        }
-
         private void BtnDatVe(object sender, RoutedEventArgs e)
         {
             SeatPicking seat = new SeatPicking();
-            seat.Show();
+            seat.ShowDialog();
         }
     }
 }
